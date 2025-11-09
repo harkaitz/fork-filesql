@@ -110,7 +110,10 @@ func (p *streamingParser) createDecompressedReader(reader io.Reader) (io.Reader,
 // parseDelimitedStream parses CSV or TSV data from reader using streaming approach
 func (p *streamingParser) parseDelimitedStream(reader io.Reader, delimiter rune, fileTypeName string) (*table, error) {
 	csvReader := csv.NewReader(reader)
+	csvReader.Comment = '#'
 	csvReader.Comma = delimiter
+	csvReader.TrimLeadingSpace = true
+	
 	records, err := csvReader.ReadAll()
 	if err != nil {
 		return nil, fmt.Errorf("failed to read %s: %w", fileTypeName, err)
@@ -118,6 +121,11 @@ func (p *streamingParser) parseDelimitedStream(reader io.Reader, delimiter rune,
 
 	if len(records) == 0 {
 		return nil, fmt.Errorf("empty %s data", fileTypeName)
+	}
+	for r := 0; r < len(records); r++ {
+		for c := 0; c < len(records[r]); c++ {
+			records[r][c] = strings.TrimSpace(records[r][c])
+		}
 	}
 
 	header := newHeader(records[0])
@@ -245,6 +253,9 @@ func (p *streamingParser) processDelimitedInChunks(reader io.Reader, processor c
 	if delimiter != csvDelimiter {
 		csvReader.Comma = delimiter
 	}
+	csvReader.Comment = '#'
+	csvReader.Comma = delimiter
+	csvReader.TrimLeadingSpace = true
 
 	// Read header first
 	headerrecord, err := csvReader.Read()
@@ -253,6 +264,9 @@ func (p *streamingParser) processDelimitedInChunks(reader io.Reader, processor c
 			return fmt.Errorf("empty %s data", fileTypeName)
 		}
 		return fmt.Errorf("failed to read %s header: %w", fileTypeName, err)
+	}
+	for c := 0; c < len(headerrecord); c++ {
+		headerrecord[c] = strings.TrimSpace(headerrecord[c])
 	}
 
 	// Validate header for duplicates
@@ -278,6 +292,9 @@ func (p *streamingParser) processDelimitedInChunks(reader io.Reader, processor c
 				break
 			}
 			return fmt.Errorf("failed to read %s record: %w", fileTypeName, err)
+		}
+		for c := 0; c < len(record); c++ {
+			record[c] = strings.TrimSpace(record[c])
 		}
 
 		chunkrecords = append(chunkrecords, newRecord(record))
