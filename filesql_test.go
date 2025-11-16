@@ -5,7 +5,7 @@ import (
 	"compress/gzip"
 	"context"
 	"database/sql"
-	"encoding/csv"
+	"github.com/harkaitz/fork-encoding-csv"
 	"errors"
 	"fmt"
 	"io"

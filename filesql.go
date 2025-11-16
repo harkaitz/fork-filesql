@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"context"
 	"database/sql"
-	"encoding/csv"
+	"github.com/harkaitz/fork-encoding-csv"
 	"errors"
 	"fmt"
 	"io"

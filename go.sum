@@ -22,6 +22,10 @@ github.com/google/pprof v0.0.0-20250317173921-a4b03ec1a45e h1:ijClszYn+mADRFY17k
 github.com/google/pprof v0.0.0-20250317173921-a4b03ec1a45e/go.mod h1:boTsfXsheKC2y+lKOCMpSfarhxDeIzfZG1jqGcPl3cA=
 github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
 github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+github.com/harkaitz/fork-encoding-csv v0.0.0-20251108075943-a53b0c9078bf h1:FoIQi1rXpTTA6QnW7I0G8CMKIDtchLrUPLHY/NbYe58=
+github.com/harkaitz/fork-encoding-csv v0.0.0-20251108075943-a53b0c9078bf/go.mod h1:ZyrgAuyIWhXH6rqhAQqPX5U5bZjDiNqPkcdHiuYMWvo=
+github.com/harkaitz/fork-encoding-csv v0.0.0-20251116121122-d1117664ec18 h1:lUIwugpzoKeSEhBrko/8hk4OW2w432cXbhkGvgybcro=
+github.com/harkaitz/fork-encoding-csv v0.0.0-20251116121122-d1117664ec18/go.mod h1:ZyrgAuyIWhXH6rqhAQqPX5U5bZjDiNqPkcdHiuYMWvo=
 github.com/klauspost/asmfmt v1.3.2 h1:4Ri7ox3EwapiOjCki+hw14RyKk201CN4rzyCJRFLpK4=
 github.com/klauspost/asmfmt v1.3.2/go.mod h1:AG8TuvYojzulgDAMCnYn50l/5QV3Bs/tp6j0HLHbNSE=
 github.com/klauspost/compress v1.18.1 h1:bcSGx7UbpBqMChDtsF28Lw6v/G94LPrrbMbdC3JH2co=

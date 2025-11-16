@@ -2,7 +2,7 @@ package filesql
 
 import (
 	"bytes"
-	"encoding/csv"
+	"github.com/harkaitz/fork-encoding-csv"
 	"fmt"
 	"io"
 	"path/filepath"

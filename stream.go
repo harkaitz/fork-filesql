@@ -4,7 +4,7 @@ import (
 	"compress/bzip2"
 	"compress/gzip"
 	"context"
-	"encoding/csv"
+	"github.com/harkaitz/fork-encoding-csv"
 	"errors"
 	"fmt"
 	"io"
